@@ -1,15 +1,15 @@
 import React from "react";
-import { FaCog } from "react-icons/fa"; // Import the settings icon from Font Awesome
+import { FaCog } from "react-icons/fa";
 import { useNavigate } from "react-router-dom";
 import { useAuth } from "../context/AuthProvider";
 
 export default function Header() {
-    const { isAuthenticated, logout } = useAuth();
+    const { logout } = useAuth();
     const navigate = useNavigate();
 
     const handleLogout = () => {
-        logout(); // Call the logout function from context
-        navigate("/login"); // Redirect to login page after logout
+        logout();
+        navigate("/login");
     };
 
     return (
@@ -27,16 +27,14 @@ export default function Header() {
                 {/* Navigation */}
                 <nav>
                     <ul className="flex space-x-6">
-                        {isAuthenticated && (
-                            <li>
-                                <button
-                                    onClick={handleLogout}
-                                    className="bg-red-500 text-white px-4 py-2 rounded-lg hover:bg-red-600 transition-colors font-semibold"
-                                >
-                                    Logout
-                                </button>
-                            </li>
-                        )}
+                        <li>
+                            <button
+                                onClick={handleLogout}
+                                className="bg-red-500 text-white px-4 py-2 rounded-lg hover:bg-red-600 transition-colors font-semibold"
+                            >
+                                Logout
+                            </button>
+                        </li>
                     </ul>
                 </nav>
             </div>
