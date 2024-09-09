@@ -1,8 +1,13 @@
+import React from "react";
+import { RouterProvider } from "react-router-dom";
+import router from "./router/router";
+import AuthProvider from "./context/AuthProvider";
+
 function App() {
     return (
-        <>
-            <p className="text-blue-400">Hello gengs</p>
-        </>
+        <AuthProvider>
+            <RouterProvider router={router} />
+        </AuthProvider>
     );
 }
 
