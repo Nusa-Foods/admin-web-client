@@ -8,6 +8,7 @@ export default function EventCreateForm() {
         description: "",
         imageUrl: "",
         quota: "",
+        date: "", // Added date field
         location: "",
         locUrl: "",
     });
@@ -34,6 +35,7 @@ export default function EventCreateForm() {
                     description: formData.description,
                     imageUrl: formData.imageUrl,
                     quota: parseInt(formData.quota),
+                    date: formData.date, // Include date in request data
                     location: formData.location,
                     locUrl: formData.locUrl,
                 },
@@ -115,6 +117,21 @@ export default function EventCreateForm() {
                         type="number"
                         name="quota"
                         value={formData.quota}
+                        onChange={handleChange}
+                        className="w-full px-3 py-2 border border-gray-300 rounded"
+                        required
+                    />
+                </div>
+
+                {/* Date */}
+                <div>
+                    <label className="block text-sm font-medium mb-1">
+                        Date
+                    </label>
+                    <input
+                        type="date"
+                        name="date"
+                        value={formData.date}
                         onChange={handleChange}
                         className="w-full px-3 py-2 border border-gray-300 rounded"
                         required
